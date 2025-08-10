@@ -176,7 +176,6 @@ MIT License © 2025 Your Name
 ## Contact
 
 For questions or contributions, please reach out: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
-
 ---
 
 Thank you for using **Arvyax Wellness Session Platform**! 🚀
