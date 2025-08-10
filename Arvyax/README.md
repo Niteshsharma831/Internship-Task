@@ -108,7 +108,7 @@ root/
 ## Running Locally
 
 * Backend API runs on: `http://localhost:4000/api`
-* Frontend runs on: `http://localhost:4000` or the port specified by your React setup
+* Frontend runs on: `http://localhost:3000` or the port specified by your React setup
 
 ---
 
@@ -183,7 +183,5 @@ Thank you for using **Arvyax Wellness Session Platform**! 🚀
 
 ```
 
----
-
-If you want me to generate `.env.example` samples or `package.json` scripts, just say!
+If you'd like, I can also help generate `.env.example` templates or package.json scripts. Just let me know!
 ```
