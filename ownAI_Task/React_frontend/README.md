@@ -4,13 +4,13 @@ The proposed `README.md` is well-structured and provides all the necessary infor
 
 Here's a corrected version of the `README.md` based on your provided text, with a few minor formatting and clarity enhancements.
 
------
+---
 
 ### README: Purchase Order Management Application
 
 This guide provides a comprehensive overview of the Purchase Order Management application, designed to help you set up, run, and understand the project. The application features a front-end for data entry and saves the data as a downloadable JSON file.
 
------
+---
 
 ### 1\. Project Overview
 
@@ -18,12 +18,12 @@ The application is a single-page React application for creating and managing Pur
 
 **Key Features:**
 
-  * **Responsive UI:** The form is built with Bootstrap, ensuring a clean and consistent look across different devices.
-  * **Dynamic Form:** You can dynamically add or remove multiple REQ sections to tailor the form to your needs.
-  * **Data Validation:** The form validates required fields and business rules (e.g., individual POs require exactly one talent).
-  * **Data Download:** The application generates a JSON file with the form data, which is then downloaded to the user's computer.
+- **Responsive UI:** The form is built with Bootstrap, ensuring a clean and consistent look across different devices.
+- **Dynamic Form:** You can dynamically add or remove multiple REQ sections to tailor the form to your needs.
+- **Data Validation:** The form validates required fields and business rules (e.g., individual POs require exactly one talent).
+- **Data Download:** The application generates a JSON file with the form data, which is then downloaded to the user's computer.
 
------
+---
 
 ### 2\. File Structure
 
@@ -50,7 +50,7 @@ The project is organized in a single directory, containing all the code and conf
 │   └── README.md                        # This file
 ```
 
------
+---
 
 ### 3\. Setup and Installation
 
@@ -63,7 +63,7 @@ To get the application up and running, follow these simple steps.
     ```
 3.  The application uses **Bootstrap** for styling, which is included as a dependency.
 
------
+---
 
 ### 4\. Running the Application
 
@@ -73,7 +73,7 @@ To get the application up and running, follow these simple steps.
     ```
 2.  Your default web browser should open automatically, and the application will be available at a local URL (e.g., `http://localhost:5173`).
 
------
+---
 
 ### 5\. Usage
 

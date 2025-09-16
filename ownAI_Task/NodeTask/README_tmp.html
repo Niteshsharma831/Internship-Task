@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ownai-assessment-api">ownAI Assessment API</h1>
+<p>A <strong>Node.js API</strong> built with <strong>Express</strong>, <strong>TypeORM</strong>, and <strong>PostgreSQL/SQLite</strong> for user registration, authentication, and user management. Features <strong>JWT-based authentication</strong>, role-based access control, and a user listing with search &amp; pagination.</p>
+<hr>
+<h2 id="table-of-contents"><strong>Table of Contents</strong></h2>
+<ol>
+<li>
+<p><a href="#project-overview">Project Overview</a></p>
+</li>
+<li>
+<p><a href="#technologies-used">Technologies Used</a></p>
+</li>
+<li>
+<p><a href="#setup-instructions">Setup Instructions</a></p>
+</li>
+<li>
+<p><a href="#environment-variables">Environment Variables</a></p>
+</li>
+<li>
+<p><a href="#database">Database</a></p>
+</li>
+<li>
+<p><a href="#apis">APIs</a></p>
+<ul>
+<li><a href="#register">Register</a></li>
+<li><a href="#login">Login</a></li>
+<li><a href="#get-all-users">Get All Users</a></li>
+<li><a href="#get-user-details">Get User Details</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#testing">Testing</a></p>
+</li>
+</ol>
+<hr>
+<h2 id="project-overview"><strong>Project Overview</strong></h2>
+<p>This API provides:</p>
+<ul>
+<li><strong>User Registration:</strong> Create a new user with name, email, password, phone, city, country, and role.</li>
+<li><strong>Login:</strong> Authenticate users with JWT token.</li>
+<li><strong>User Management:</strong> Admin can view all users; users can view their own details.</li>
+<li><strong>Search &amp; Pagination:</strong> Filter users by name, email, or country.</li>
+<li><strong>Role-based Access Control:</strong> Admin-only endpoints for sensitive operations.</li>
+</ul>
+<hr>
+<h2 id="technologies-used"><strong>Technologies Used</strong></h2>
+<ul>
+<li>Node.js &amp; Express.js</li>
+<li>TypeORM (ORM for PostgreSQL &amp; SQLite)</li>
+<li>PostgreSQL / SQLite (auto fallback if PostgreSQL not available)</li>
+<li>bcrypt (password hashing)</li>
+<li>JSON Web Token (JWT) for authentication</li>
+<li>express-validator for input validation</li>
+</ul>
+<hr>
+<h2 id="setup-instructions"><strong>Setup Instructions</strong></h2>
+<ol>
+<li>Clone the repository:</li>
+</ol>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> &lt;your-repo-url&gt;
+<span class="hljs-built_in">cd</span> ownAI_Task
+</div></code></pre>
+<ol start="2">
+<li>Install dependencies:</li>
+</ol>
+<pre class="hljs"><code><div>npm install
+npm install nodemon
+</div></code></pre>
+<ol start="3">
+<li>Create a <code>.env</code> file in the root directory:</li>
+</ol>
+<pre class="hljs"><code><div>PORT=4000
+JWT_SECRET=your_secret
+JWT_EXPIRES_IN=1d
+DB_PATH=./db/sqlite.db
+
+# PostgreSQL config (optional)
+PG_DB=ownai_db
+PG_USER=postgres   --&gt; Change your postgress username here
+PG_PASS=Database   --&gt; Change your postgress Password here
+PG_HOST=localhost
+PG_PORT=5432
+</div></code></pre>
+<ol start="4">
+<li>Run the server:</li>
+</ol>
+<pre class="hljs"><code><div>nodemon index.js
+    or
+node index.js
+</div></code></pre>
+<p>The server will:</p>
+<ul>
+<li>Attempt to connect to PostgreSQL using the <code>.env</code> config.</li>
+<li>If the database does not exist, it will create one automatically (<code>ownAI</code>).</li>
+<li>Fallback to SQLite if PostgreSQL is not available.</li>
+<li>Create a default admin account:</li>
+</ul>
+<pre class="hljs"><code><div>Email: admin@ownai.local
+Password: Admin@123
+</div></code></pre>
+<hr>
+<h2 id="database"><strong>Database</strong></h2>
+<ul>
+<li><strong>Users Table</strong>
+| Column | Type | Notes |
+|------------|------------|-----------------------------|
+| id | uuid | Primary key |
+| name | varchar | |
+| email | varchar | Unique |
+| password | varchar | Hashed |
+| phone | varchar | Nullable |
+| city | varchar | Nullable |
+| country | varchar | Nullable |
+| role | varchar | Default: 'Staff' |
+| createdAt | timestamp | Auto-generated |
+| updatedAt | timestamp | Auto-updated |</li>
+</ul>
+<hr>
+<h2 id="apis"><strong>APIs</strong></h2>
+<h3 id="register"><strong>Register</strong></h3>
+<pre class="hljs"><code><div>POST http://localhost:4000/api/auth/register
+</div></code></pre>
+<p><strong>Request Body:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"Niteshkumarsharma831@gmail.com"</span>,
+  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"123456"</span>,
+  <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9572861917"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Gaya"</span>,
+  <span class="hljs-attr">"country"</span>: <span class="hljs-string">"India"</span>
+}
+</div></code></pre>
+<p><strong>Response:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"User registered"</span>,
+  <span class="hljs-attr">"user"</span>: {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"Niteshkumarsharma831@gmail.com"</span>,
+    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9572861917"</span>,
+    <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Gaya"</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"India"</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"77c5686f-1641-47d8-9f97-87ff0593280b"</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-09-16T12:54:42.164Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2025-09-16T12:54:42.164Z"</span>
+  }
+}
+</div></code></pre>
+<hr>
+<h3 id="login"><strong>Login</strong></h3>
+<pre class="hljs"><code><div>POST http://localhost:4000/api/auth/login
+</div></code></pre>
+<p><strong>Request Body:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"Niteshkumarsharma831@gmail.com"</span>,
+  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"123456"</span>
+}
+</div></code></pre>
+<p><strong>Response:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Login successful"</span>,
+  <span class="hljs-attr">"token"</span>: <span class="hljs-string">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3N2M1Njg2Zi0xNjQxLTQ3ZDgtOWY5Ny04N2ZmMDU5MzI4MGIiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NTgwMjcyOTYsImV4cCI6MTc1ODExMzY5Nn0.tv2JHlNdSQv2ATmPKTw3EAnpBRdXYk8oNlx0tk6NwLs"</span>,
+  <span class="hljs-attr">"user"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"77c5686f-1641-47d8-9f97-87ff0593280b"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"Niteshkumarsharma831@gmail.com"</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>
+  }
+}
+</div></code></pre>
+<hr>
+<h3 id="get-all-users-admin-only"><strong>Get All Users</strong> (Admin Only)</h3>
+<pre class="hljs"><code><div>GET  http://localhost:4000/api/users
+</div></code></pre>
+<p><strong>Headers:</strong></p>
+<pre class="hljs"><code><div>Authorization: Bearer &lt;JWT_TOKEN&gt;
+</div></code></pre>
+<p><strong>Query Parameters (Optional):</strong></p>
+<ul>
+<li><code>search</code> → Filter by name/email</li>
+<li><code>country</code> → Filter by country</li>
+<li><code>page</code> → Page number (default: 1)</li>
+<li><code>limit</code> → Number of users per page (default: 20)</li>
+</ul>
+<p><strong>Response:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"data"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1c7c0a6d-7b38-4766-bb30-e3bac09dbc68"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9572861917"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Gaya"</span>,
+      <span class="hljs-attr">"country"</span>: <span class="hljs-string">"India"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-09-16T12:39:38.119Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2025-09-16T12:39:38.119Z"</span>
+    },
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"20eaf07e-d455-470a-ae20-a6ab2729c8da"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example1.com"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9572861917"</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Unknown"</span>,
+      <span class="hljs-attr">"country"</span>: <span class="hljs-string">"India"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-09-16T12:36:05.208Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2025-09-16T12:36:05.208Z"</span>
+    },
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"b42b62fb-712c-4f10-8c27-377e75b58153"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Admin User"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@ownai.local"</span>,
+      <span class="hljs-attr">"phone"</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Unknown"</span>,
+      <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Unknown"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-09-16T12:35:42.148Z"</span>,
+      <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2025-09-16T12:35:42.148Z"</span>
+    }
+  ],
+  <span class="hljs-attr">"total"</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-attr">"page"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">20</span>
+}
+</div></code></pre>
+<hr>
+<h3 id="get-user-details"><strong>Get User Details</strong></h3>
+<pre class="hljs"><code><div>GET http://localhost:4000/api/users/:id
+</div></code></pre>
+<p><strong>Headers:</strong></p>
+<pre class="hljs"><code><div>Authorization: Bearer &lt;JWT_TOKEN&gt;
+</div></code></pre>
+<ul>
+<li><strong>Admin:</strong> Can view any user</li>
+<li><strong>Normal user:</strong> Can only view their own profile</li>
+</ul>
+<p><strong>Response:</strong></p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"User registered"</span>,
+  <span class="hljs-attr">"user"</span>: {
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nitesh"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"9572861917"</span>,
+    <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Gaya"</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"India"</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Admin"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1c7c0a6d-7b38-4766-bb30-e3bac09dbc68"</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-09-16T12:39:38.119Z"</span>,
+    <span class="hljs-attr">"updatedAt"</span>: <span class="hljs-string">"2025-09-16T12:39:38.119Z"</span>
+  }
+}
+</div></code></pre>
+<hr>
+<h2 id="testing"><strong>Testing</strong></h2>
+<ol>
+<li>Use <strong>Postman</strong> or <strong>Insomnia</strong> for API testing.</li>
+<li>Register a new user via <code>http://localhost:4000/api/auth/register</code>.</li>
+<li>Login via <code>http://localhost:4000/api/auth/login</code> to get the JWT token.</li>
+<li>Use token to access <code>http://localhost:4000/api/users</code> or <code>http://localhost:4000/api/users/:id</code>.</li>
+<li>Search, filter, and paginate using query parameters on <code>http://localhost:4000/api/users</code>.</li>
+</ol>
+<hr>
+<h3 id="notes"><strong>Notes</strong></h3>
+<ul>
+<li>JWT tokens expire in 1 day (<code>JWT_EXPIRES_IN=1d</code>).</li>
+<li>All passwords are securely hashed using <strong>bcrypt</strong>.</li>
+<li>TypeORM auto-creates the database tables based on your entity schemas.</li>
+<li><code>city</code> and <code>country</code> are optional fields.</li>
+</ul>
+
+</body>
+</html>
