@@ -1,0 +1,26 @@
+[
+  {
+    "id": "c1",
+    "name": "Collabera Inc",
+    "reqs": [
+      {
+        "id": "r1",
+        "title": "Application Development",
+        "reqId": "OWNAI_234",
+        "talents": [
+          { "id": "task1", "name": "Nitesh Kumar Sharma" },
+          { "id": "task2", "name": "Gaurav Kumar" }
+        ]
+      },
+      {
+        "id": "r2",
+        "title": "Business Administrator",
+        "reqId": "CLK_12880",
+        "talents": [
+          { "id": "task3", "name": "Aarti Kumari" },
+          { "id": "task4", "name": "Sonam Kumari" }
+        ]
+      }
+    ]
+  }
+]
