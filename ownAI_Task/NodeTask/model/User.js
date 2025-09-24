@@ -1,18 +1,51 @@
-// model/User.js
 const { EntitySchema } = require("typeorm");
-
-module.exports = new EntitySchema({
+const User = new EntitySchema({
   name: "User",
   tableName: "users",
   columns: {
-    id: { primary: true, type: "uuid", generated: "uuid" },
-    name: { type: "varchar" },
-    email: { type: "varchar", unique: true },
-    password: { type: "varchar" },
-    role: { type: "varchar", default: "Staff" },
-    phone: { type: "varchar", nullable: true },
-    city: { type: "varchar", nullable: true },
-    country: { type: "varchar", nullable: true },
-    createdAt: { type: "timestamp", createDate: true },
+    id: {
+      type: "uuid",
+      primary: true,
+      generated: "uuid",
+    },
+    name: {
+      type: "varchar",
+      nullable: false,
+    },
+    email: {
+      type: "varchar",
+      unique: true,
+      nullable: false,
+    },
+    password: {
+      type: "varchar",
+      nullable: false,
+    },
+    role: {
+      type: "varchar",
+      default: "User",
+    },
+    phone: {
+      type: "varchar",
+      nullable: true,
+    },
+    city: {
+      type: "varchar",
+      nullable: true,
+    },
+    country: {
+      type: "varchar",
+      nullable: true,
+    },
+    createdAt: {
+      type: "timestamp",
+      createDate: true,
+    },
+    updatedAt: {
+      type: "timestamp",
+      updateDate: true,
+    },
   },
 });
+
+module.exports = User;

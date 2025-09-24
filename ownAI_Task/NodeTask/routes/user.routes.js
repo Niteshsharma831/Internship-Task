@@ -1,4 +1,7 @@
+// routes/user.routes.js
 const express = require("express");
+const router = express.Router();
+
 const {
   register,
   login,
@@ -7,21 +10,28 @@ const {
   deleteUser,
   updateUser,
 } = require("../controllers/user.controller");
+
 const {
   authMiddleware,
   requireRole,
 } = require("../middleware/auth.middleware");
 
-const router = express.Router();
-
-// 🔑 Auth routes
+// Register a new user
 router.post("/register", register);
+
+// Login existing user
 router.post("/login", login);
 
-// 👥 User routes
-router.get("/", authMiddleware, requireRole("Admin"), listUsers);
+// Get single user details
 router.get("/:id", authMiddleware, getUserDetails);
-router.delete("/:id", authMiddleware, requireRole("Admin"), deleteUser);
+
+// List all users (Admin only)
+router.get("/", authMiddleware, requireRole("Admin"), listUsers);
+
+// Update user (Admin only)
 router.patch("/:id", authMiddleware, requireRole("Admin"), updateUser);
+
+// Delete user (Admin only)
+router.delete("/:id", authMiddleware, requireRole("Admin"), deleteUser);
 
 module.exports = router;

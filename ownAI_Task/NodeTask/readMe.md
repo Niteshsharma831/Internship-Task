@@ -80,7 +80,7 @@ nodemon index.js
 - You should see:
 
 ```
-✅ Database connected
+Database connected
 Server running on http://localhost:4000
 ```
 
@@ -90,18 +90,18 @@ Server running on http://localhost:4000
 
 **Users Table**
 
-| Column    | Type      | Notes            |
-| --------- | --------- | ---------------- |
-| id        | uuid      | Primary key      |
-| name      | varchar   |                  |
-| email     | varchar   | Unique           |
-| password  | varchar   | Hashed           |
-| role      | varchar   | Default: 'Staff' |
-| phone     | varchar   | Nullable         |
-| city      | varchar   | Nullable         |
-| country   | varchar   | Nullable         |
-| createdAt | timestamp | Auto-generated   |
-| updatedAt | timestamp | Auto-updated     |
+| Column    | Type      | Notes                   |
+| --------- | --------- | ----------------------- |
+| id        | uuid      | Primary key             |
+| name      | varchar   |                         |
+| email     | varchar   | Unique                  |
+| password  | varchar   | Hashed                  |
+| role      | varchar   | Default: 'User'         |
+| phone     | varchar   | Optional                |
+| city      | varchar   | Optional                |
+| country   | varchar   | Optional                |
+| createdAt | timestamp | Automatically generated |
+| updatedAt | timestamp | Automatically updated   |
 
 ---
 
@@ -116,11 +116,12 @@ POST http://localhost:4000/api/users/register
 **Body:**
 
 ```json
+If no role is mentioned, the user will be assigned the default role
 {
   "name": "Nitesh Sharma",
   "email": "niteshkumarsharma831@gmail.com",
   "password": "123456",
-  "role": "Admin",
+  "role": "User",
   "phone": "9572861917",
   "city": "Gaya",
   "country": "India"
@@ -136,7 +137,7 @@ POST http://localhost:4000/api/users/register
     "name": "Nitesh Sharma",
     "email": "niteshkumarsharma831@gmail.com",
     "password": "$2b$10$/sO62mnvcW0IvUpcrB3Sbu5b9O2AQfmh6H/fljNL84VKjGhkXmkaW",
-    "role": "Admin",
+    "role": "User",
     "phone": "9572861917",
     "city": "Gaya",
     "country": "India",
@@ -307,6 +308,13 @@ Authorization: Bearer <JWT_TOKEN>
 
 ---
 
+### 7. Serch User by name and Email
+
+```
+GET http://localhost:4000/api/users?search=Nitesh
+GET http://localhost:4000/api/users?search=Niteshkumarsharma831@gmail.com
+```
+
 ## Testing Using Postman
 
 1. Register a user with `POST /api/users/register`.
@@ -317,6 +325,7 @@ Authorization: Bearer <JWT_TOKEN>
    - `GET /api/users/:id` → view single user
    - `PATCH /api/users/:id` → update user
    - `DELETE /api/users/:id` → delete user
+   - `GET /api/users?search=nitesh` → search users
 
 ---
 
@@ -336,3 +345,10 @@ nodemon index.js
 - Optional fields: `city`, `country`, `phone`.
 
 ---
+
+## Contact Details
+
+- **Name:** Nitesh Kumar Sharma
+- **Email:** [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
+- **Phone:** +91 9572861917
+- **Portfolio** [https://devcraftnitesh.vercel.app](https://devcraftnitesh.vercel.app)
