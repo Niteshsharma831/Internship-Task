@@ -4,19 +4,6 @@ A **Node.js API** built with **Express**, **TypeORM**, and **PostgreSQL** for us
 
 ---
 
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Technologies Used](#technologies-used)
-3. [Setup Instructions](#setup-instructions)
-4. [Environment Variables](#environment-variables)
-5. [Database Structure](#database-structure)
-6. [API Endpoints](#api-endpoints)
-7. [Testing](#testing)
-8. [Notes for Beginners](#notes-for-beginners)
-
----
-
 ## Project Overview
 
 This API allows you to:
@@ -48,7 +35,7 @@ This API allows you to:
 ### Step 1: Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Niteshsharma831/Internship-Task/tree/master/ownAI_Task/NodeTask>
 cd ownAI_Task
 ```
 
@@ -123,7 +110,7 @@ Server running on http://localhost:4000
 ### 1. Register User
 
 ```
-POST /api/users/register
+POST http://localhost:4000/api/users/register
 ```
 
 **Body:**
@@ -146,15 +133,15 @@ POST /api/users/register
 {
   "message": "User registered successfully",
   "user": {
-    "id": "...",
     "name": "Nitesh Sharma",
     "email": "niteshkumarsharma831@gmail.com",
+    "password": "$2b$10$/sO62mnvcW0IvUpcrB3Sbu5b9O2AQfmh6H/fljNL84VKjGhkXmkaW",
     "role": "Admin",
     "phone": "9572861917",
     "city": "Gaya",
     "country": "India",
-    "createdAt": "...",
-    "updatedAt": "..."
+    "id": "95802e9f-a331-4dff-a3d4-ddd9d0d3393d",
+    "createdAt": "2025-09-24T12:38:28.256Z"
   }
 }
 ```
@@ -164,7 +151,7 @@ POST /api/users/register
 ### 2. Login
 
 ```
-POST /api/users/login
+POST http://localhost:4000/api/users/login
 ```
 
 **Body:**
@@ -181,12 +168,15 @@ POST /api/users/login
 ```json
 {
   "message": "Login successful",
-  "token": "<JWT_TOKEN>",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5NTgwMmU5Zi1hMzMxLTRkZmYtYTNkNC1kZGQ5ZDBkMzM5M2QiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NTg3MTc2MjEsImV4cCI6MTc1ODgwNDAyMX0.S-CZdaWPCMad78u3fC-vAARvYaTSBjLE_blmXp0JXqo",
   "user": {
-    "id": "...",
+    "id": "95802e9f-a331-4dff-a3d4-ddd9d0d3393d",
     "name": "Nitesh Sharma",
     "email": "niteshkumarsharma831@gmail.com",
-    "role": "Admin"
+    "role": "Admin",
+    "phone": "9572861917",
+    "city": "Gaya",
+    "country": "India"
   }
 }
 ```
@@ -196,7 +186,7 @@ POST /api/users/login
 ### 3. Get All Users (Admin Only)
 
 ```
-GET /api/users
+GET http://localhost:4000/api/users
 ```
 
 **Headers:**
@@ -210,15 +200,14 @@ Authorization: Bearer <JWT_TOKEN>
 ```json
 [
   {
-    "id": "...",
-    "name": "Nitesh Sharma",
-    "email": "...",
+    "id": "95802e9f-a331-4dff-a3d4-ddd9d0d3393d",
+    "name": "Nitesh Sharma Updated",
+    "email": "niteshkumarsharma831@gmail.com",
     "role": "Admin",
-    "phone": "...",
-    "city": "...",
-    "country": "...",
-    "createdAt": "...",
-    "updatedAt": "..."
+    "phone": "9572861917",
+    "city": "Patna",
+    "country": "India",
+    "createdAt": "2025-09-24T12:38:28.256Z"
   }
 ]
 ```
@@ -228,7 +217,7 @@ Authorization: Bearer <JWT_TOKEN>
 ### 4. Get Single User
 
 ```
-GET /api/users/:id
+GET http://localhost:4000/api/users/:id
 ```
 
 **Headers:**
@@ -241,13 +230,13 @@ Authorization: Bearer <JWT_TOKEN>
 
 ```json
 {
-  "id": "...",
-  "name": "Nitesh Sharma",
-  "email": "...",
+  "id": "95802e9f-a331-4dff-a3d4-ddd9d0d3393d",
+  "name": "Nitesh Sharma Updated",
+  "email": "niteshkumarsharma831@gmail.com",
   "role": "Admin",
-  "phone": "...",
-  "city": "...",
-  "country": "..."
+  "phone": "9572861917",
+  "city": "Patna",
+  "country": "India"
 }
 ```
 
@@ -256,7 +245,7 @@ Authorization: Bearer <JWT_TOKEN>
 ### 5. Update User
 
 ```
-PATCH /api/users/:id
+PATCH http://localhost:4000/api/users/:id
 ```
 
 **Headers:**
@@ -281,15 +270,15 @@ Authorization: Bearer <JWT_TOKEN>
 {
   "message": "User updated successfully",
   "user": {
-    "id": "...",
-    "name": "Updated Name",
-    "email": "...",
+    "id": "95802e9f-a331-4dff-a3d4-ddd9d0d3393d",
+    "name": "Nitesh Sharma Updated",
+    "email": "niteshkumarsharma831@gmail.com",
+    "password": "$2b$10$7HE5q0kNRl/.Kazd/OS.0e3AgvRe2qSseTNAfYSkOn8SrvwGpgDwa",
     "role": "Admin",
-    "phone": "...",
+    "phone": "9572861917",
     "city": "Patna",
-    "country": "...",
-    "createdAt": "...",
-    "updatedAt": "..."
+    "country": "India",
+    "createdAt": "2025-09-24T12:38:28.256Z"
   }
 }
 ```
@@ -299,7 +288,7 @@ Authorization: Bearer <JWT_TOKEN>
 ### 6. Delete User
 
 ```
-DELETE /api/users/:id
+DELETE http://localhost:4000/api/users/:id
 ```
 
 **Headers:**
