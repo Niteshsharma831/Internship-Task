@@ -1,24 +1,134 @@
 [
   {
     "id": "c1",
-    "name": "Collabera Inc",
+    "name": "ownAI Pvt. Ltd.",
     "reqs": [
       {
-        "id": "r1",
-        "title": "Application Development",
-        "reqId": "OWNAI_234",
+        "id": "req-101",
+        "title": "Software Engineer",
         "talents": [
-          { "id": "task1", "name": "Nitesh Kumar Sharma" },
-          { "id": "task2", "name": "Gaurav Kumar" }
+          { "id": "t-101", "name": "Nitesh Sharma" },
+          { "id": "t-102", "name": "Rohan Mehta" },
+          { "id": "t-103", "name": "Priya Singh" }
         ]
       },
       {
-        "id": "r2",
-        "title": "Business Administrator",
-        "reqId": "CLK_12880",
+        "id": "req-102",
+        "title": "Product Manager",
         "talents": [
-          { "id": "task3", "name": "Aarti Kumari" },
-          { "id": "task4", "name": "Sonam Kumari" }
+          { "id": "t-104", "name": "Ananya Gupta" },
+          { "id": "t-105", "name": "Vikram Choudhary" },
+          { "id": "t-106", "name": "Sakshi Kumari" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "r1",
+    "name": "Sevya Tech Solutions",
+    "reqs": [
+      {
+        "id": "req-201",
+        "title": "Data Analyst",
+        "talents": [
+          { "id": "t-201", "name": "Ishaan Reddy" },
+          { "id": "t-202", "name": "Meera Kumari" }
+        ]
+      },
+      {
+        "id": "req-202",
+        "title": "Cybersecurity Expert",
+        "talents": [
+          { "id": "t-203", "name": "Aditya Kumar" },
+          { "id": "t-204", "name": "Sanya Sharma" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "r2",
+    "name": "Rajkot IT Services",
+    "reqs": [
+      {
+        "id": "req-301",
+        "title": "AI Specialist",
+        "talents": [
+          { "id": "t-301", "name": "Raghav Kumar" },
+          { "id": "t-302", "name": "Mehul Patel" }
+        ]
+      },
+      {
+        "id": "req-302",
+        "title": "Networking Engineer",
+        "talents": [
+          { "id": "t-303", "name": "Mukesh Kumar" },
+          { "id": "t-304", "name": "Anshu Sharma" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "r3",
+    "name": "Gujarat Infotech Pvt. Ltd.",
+    "reqs": [
+      {
+        "id": "req-401",
+        "title": "Cloud Engineer",
+        "talents": [
+          { "id": "t-401", "name": "Ishaan Sharma" },
+          { "id": "t-402", "name": "Meera Yadav" }
+        ]
+      },
+      {
+        "id": "req-402",
+        "title": "UI/UX Designer",
+        "talents": [
+          { "id": "t-403", "name": "Ananya Kumari" },
+          { "id": "t-404", "name": "Rohan Yadav" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "r4",
+    "name": "Rajkot Tech Labs",
+    "reqs": [
+      {
+        "id": "req-501",
+        "title": "Full Stack Developer",
+        "talents": [
+          { "id": "t-501", "name": "Amit Kumar" },
+          { "id": "t-502", "name": "Neha Sharma" }
+        ]
+      },
+      {
+        "id": "req-502",
+        "title": "Mobile App Developer",
+        "talents": [
+          { "id": "t-503", "name": "Karan Yadav" },
+          { "id": "t-504", "name": "Sneha Kumari" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "r5",
+    "name": "Rajkot Innovations Pvt. Ltd.",
+    "reqs": [
+      {
+        "id": "req-601",
+        "title": "Frontend Developer",
+        "talents": [
+          { "id": "t-601", "name": "Harsh Sharma" },
+          { "id": "t-602", "name": "Pooja Kumari" }
+        ]
+      },
+      {
+        "id": "req-602",
+        "title": "Backend Developer",
+        "talents": [
+          { "id": "t-603", "name": "Sunil Kumar" },
+          { "id": "t-604", "name": "Karan Kumar" }
         ]
       }
     ]

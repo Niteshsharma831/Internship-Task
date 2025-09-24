@@ -1,136 +1,137 @@
 # ownAI Assessment API
 
-A **Node.js API** built with **Express**, **TypeORM**, and **PostgreSQL/SQLite** for user registration, authentication, and user management. Features **JWT-based authentication**, role-based access control, and a user listing with search & pagination.
+A **Node.js API** built with **Express**, **TypeORM**, and **PostgreSQL** for user management. Supports **registration, login, JWT authentication**, and full **CRUD operations** with **role-based access control**.
 
 ---
 
-## **Table of Contents**
+## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [Technologies Used](#technologies-used)
 3. [Setup Instructions](#setup-instructions)
 4. [Environment Variables](#environment-variables)
-5. [Database](#database)
-6. [APIs](#apis)
-
-   - [Register](#register)
-   - [Login](#login)
-   - [Get All Users](#get-all-users)
-   - [Get User Details](#get-user-details)
-
+5. [Database Structure](#database-structure)
+6. [API Endpoints](#api-endpoints)
 7. [Testing](#testing)
+8. [Notes for Beginners](#notes-for-beginners)
 
 ---
 
-## **Project Overview**
+## Project Overview
 
-This API provides:
+This API allows you to:
 
-- **User Registration:** Create a new user with name, email, password, phone, city, country, and role.
-- **Login:** Authenticate users with JWT token.
-- **User Management:** Admin can view all users; users can view their own details.
-- **Search & Pagination:** Filter users by name, email, or country.
-- **Role-based Access Control:** Admin-only endpoints for sensitive operations.
+- **Register Users:** Add new users with name, email, password, phone, city, country, and role.
+- **Login Users:** Authenticate and get a JWT token.
+- **User Management:**
+
+  - Admins can view, update, and delete any user.
+  - Normal users can view or update their own profile.
+
+- **Role-based Access:** Only Admins can perform sensitive actions like deleting or listing all users.
 
 ---
 
-## **Technologies Used**
+## Technologies Used
 
 - Node.js & Express.js
-- TypeORM (ORM for PostgreSQL & SQLite)
-- PostgreSQL / SQLite (auto fallback if PostgreSQL not available)
-- bcrypt (password hashing)
-- JSON Web Token (JWT) for authentication
-- express-validator for input validation
+- TypeORM (for database ORM)
+- PostgreSQL (or fallback SQLite)
+- bcrypt (for password hashing)
+- JWT (JSON Web Token for authentication)
+- dotenv (for environment variables)
 
 ---
 
-## **Setup Instructions**
+## Setup Instructions
 
-1. Clone the repository:
+### Step 1: Clone the repository
 
 ```bash
 git clone <your-repo-url>
 cd ownAI_Task
 ```
 
-2. Install dependencies:
+### Step 2: Install dependencies
 
 ```bash
 npm install
-npm install nodemon
+npm install -g nodemon
 ```
 
-3. Create a `.env` file in the root directory:
+### Step 3: Configure environment variables
+
+Create a `.env` file in the project root:
 
 ```env
 PORT=4000
+
+# JWT config
 JWT_SECRET=your_secret
 JWT_EXPIRES_IN=1d
-DB_PATH=./db/sqlite.db
 
-# PostgreSQL config (optional)
-PG_DB=ownai_db
-PG_USER=postgres   --> Change your postgress username here
-PG_PASS=Database   --> Change your postgress Password here
+# PostgreSQL config
+PG_DB=ownAI
+PG_USER=postgres      # Enter your PostgreSQL username
+PG_PASS=Database      # Enter your PostgreSQL password
 PG_HOST=localhost
 PG_PORT=5432
 ```
 
-4. Run the server:
+**Note:** Replace `your_secret` with any secret string. Replace `PG_USER` and `PG_PASS` with your PostgreSQL credentials.
+
+---
+
+### Step 4: Start the server
 
 ```bash
 nodemon index.js
-    or
-node index.js
 ```
 
-The server will:
-
-- Attempt to connect to PostgreSQL using the `.env` config.
-- If the database does not exist, it will create one automatically (`ownAI`).
-- Fallback to SQLite if PostgreSQL is not available.
-- Create a default admin account:
+- The server will attempt to connect to PostgreSQL.
+- If the database does not exist, it will **create automatically**.
+- You should see:
 
 ```
-Email: admin@ownai.local
-Password: Admin@123
+✅ Database connected
+Server running on http://localhost:4000
 ```
 
 ---
 
-## **Database**
+## Database Structure
 
-- **Users Table**
-  \| Column | Type | Notes |
-  \|------------|------------|-----------------------------|
-  \| id | uuid | Primary key |
-  \| name | varchar | |
-  \| email | varchar | Unique |
-  \| password | varchar | Hashed |
-  \| phone | varchar | Nullable |
-  \| city | varchar | Nullable |
-  \| country | varchar | Nullable |
-  \| role | varchar | Default: 'Staff' |
-  \| createdAt | timestamp | Auto-generated |
-  \| updatedAt | timestamp | Auto-updated |
+**Users Table**
+
+| Column    | Type      | Notes            |
+| --------- | --------- | ---------------- |
+| id        | uuid      | Primary key      |
+| name      | varchar   |                  |
+| email     | varchar   | Unique           |
+| password  | varchar   | Hashed           |
+| role      | varchar   | Default: 'Staff' |
+| phone     | varchar   | Nullable         |
+| city      | varchar   | Nullable         |
+| country   | varchar   | Nullable         |
+| createdAt | timestamp | Auto-generated   |
+| updatedAt | timestamp | Auto-updated     |
 
 ---
 
-## **APIs**
+## API Endpoints
 
-### **Register**
+### 1. Register User
 
 ```
-POST http://localhost:4000/api/auth/register
+POST /api/users/register
 ```
 
-**Request Body:**
+**Body:**
 
 ```json
 {
-  "name": "Nitesh",
-  "email": "Niteshkumarsharma831@gmail.com",
+  "name": "Nitesh Sharma",
+  "email": "niteshkumarsharma831@gmail.com",
   "password": "123456",
   "role": "Admin",
   "phone": "9572861917",
@@ -143,34 +144,34 @@ POST http://localhost:4000/api/auth/register
 
 ```json
 {
-  "message": "User registered",
+  "message": "User registered successfully",
   "user": {
-    "name": "Nitesh",
-    "email": "Niteshkumarsharma831@gmail.com",
+    "id": "...",
+    "name": "Nitesh Sharma",
+    "email": "niteshkumarsharma831@gmail.com",
+    "role": "Admin",
     "phone": "9572861917",
     "city": "Gaya",
     "country": "India",
-    "role": "Admin",
-    "id": "77c5686f-1641-47d8-9f97-87ff0593280b",
-    "createdAt": "2025-09-16T12:54:42.164Z",
-    "updatedAt": "2025-09-16T12:54:42.164Z"
+    "createdAt": "...",
+    "updatedAt": "..."
   }
 }
 ```
 
 ---
 
-### **Login**
+### 2. Login
 
 ```
-POST http://localhost:4000/api/auth/login
+POST /api/users/login
 ```
 
-**Request Body:**
+**Body:**
 
 ```json
 {
-  "email": "Niteshkumarsharma831@gmail.com",
+  "email": "niteshkumarsharma831@gmail.com",
   "password": "123456"
 }
 ```
@@ -180,11 +181,11 @@ POST http://localhost:4000/api/auth/login
 ```json
 {
   "message": "Login successful",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3N2M1Njg2Zi0xNjQxLTQ3ZDgtOWY5Ny04N2ZmMDU5MzI4MGIiLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NTgwMjcyOTYsImV4cCI6MTc1ODExMzY5Nn0.tv2JHlNdSQv2ATmPKTw3EAnpBRdXYk8oNlx0tk6NwLs",
+  "token": "<JWT_TOKEN>",
   "user": {
-    "id": "77c5686f-1641-47d8-9f97-87ff0593280b",
-    "name": "Nitesh",
-    "email": "Niteshkumarsharma831@gmail.com",
+    "id": "...",
+    "name": "Nitesh Sharma",
+    "email": "niteshkumarsharma831@gmail.com",
     "role": "Admin"
   }
 }
@@ -192,10 +193,10 @@ POST http://localhost:4000/api/auth/login
 
 ---
 
-### **Get All Users** (Admin Only)
+### 3. Get All Users (Admin Only)
 
 ```
-GET  http://localhost:4000/api/users
+GET /api/users
 ```
 
 **Headers:**
@@ -204,64 +205,58 @@ GET  http://localhost:4000/api/users
 Authorization: Bearer <JWT_TOKEN>
 ```
 
-**Query Parameters (Optional):**
+**Response:**
 
-- `search` → Filter by name/email
-- `country` → Filter by country
-- `page` → Page number (default: 1)
-- `limit` → Number of users per page (default: 20)
+```json
+[
+  {
+    "id": "...",
+    "name": "Nitesh Sharma",
+    "email": "...",
+    "role": "Admin",
+    "phone": "...",
+    "city": "...",
+    "country": "...",
+    "createdAt": "...",
+    "updatedAt": "..."
+  }
+]
+```
+
+---
+
+### 4. Get Single User
+
+```
+GET /api/users/:id
+```
+
+**Headers:**
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
 
 **Response:**
 
 ```json
 {
-  "data": [
-    {
-      "id": "1c7c0a6d-7b38-4766-bb30-e3bac09dbc68",
-      "name": "Nitesh",
-      "email": "test@example.com",
-      "phone": "9572861917",
-      "city": "Gaya",
-      "country": "India",
-      "role": "Admin",
-      "createdAt": "2025-09-16T12:39:38.119Z",
-      "updatedAt": "2025-09-16T12:39:38.119Z"
-    },
-    {
-      "id": "20eaf07e-d455-470a-ae20-a6ab2729c8da",
-      "name": "Nitesh",
-      "email": "test@example1.com",
-      "phone": "9572861917",
-      "city": "Unknown",
-      "country": "India",
-      "role": "Admin",
-      "createdAt": "2025-09-16T12:36:05.208Z",
-      "updatedAt": "2025-09-16T12:36:05.208Z"
-    },
-    {
-      "id": "b42b62fb-712c-4f10-8c27-377e75b58153",
-      "name": "Admin User",
-      "email": "admin@ownai.local",
-      "phone": null,
-      "city": "Unknown",
-      "country": "Unknown",
-      "role": "Admin",
-      "createdAt": "2025-09-16T12:35:42.148Z",
-      "updatedAt": "2025-09-16T12:35:42.148Z"
-    }
-  ],
-  "total": 3,
-  "page": 1,
-  "limit": 20
+  "id": "...",
+  "name": "Nitesh Sharma",
+  "email": "...",
+  "role": "Admin",
+  "phone": "...",
+  "city": "...",
+  "country": "..."
 }
 ```
 
 ---
 
-### **Get User Details**
+### 5. Update User
 
 ```
-GET http://localhost:4000/api/users/:id
+PATCH /api/users/:id
 ```
 
 **Headers:**
@@ -270,43 +265,85 @@ GET http://localhost:4000/api/users/:id
 Authorization: Bearer <JWT_TOKEN>
 ```
 
-- **Admin:** Can view any user
-- **Normal user:** Can only view their own profile
+**Body (only fields to update):**
+
+```json
+{
+  "name": "Updated Name",
+  "city": "Patna",
+  "password": "newpassword123"
+}
+```
 
 **Response:**
 
 ```json
 {
-  "message": "User registered",
+  "message": "User updated successfully",
   "user": {
-    "name": "Nitesh",
-    "email": "test@example.com",
-    "phone": "9572861917",
-    "city": "Gaya",
-    "country": "India",
+    "id": "...",
+    "name": "Updated Name",
+    "email": "...",
     "role": "Admin",
-    "id": "1c7c0a6d-7b38-4766-bb30-e3bac09dbc68",
-    "createdAt": "2025-09-16T12:39:38.119Z",
-    "updatedAt": "2025-09-16T12:39:38.119Z"
+    "phone": "...",
+    "city": "Patna",
+    "country": "...",
+    "createdAt": "...",
+    "updatedAt": "..."
   }
 }
 ```
 
 ---
 
-## **Testing**
+### 6. Delete User
 
-1. Use **Postman** or **Insomnia** for API testing.
-2. Register a new user via `http://localhost:4000/api/auth/register`.
-3. Login via `http://localhost:4000/api/auth/login` to get the JWT token.
-4. Use token to access `http://localhost:4000/api/users` or `http://localhost:4000/api/users/:id`.
-5. Search, filter, and paginate using query parameters on `http://localhost:4000/api/users`.
+```
+DELETE /api/users/:id
+```
+
+**Headers:**
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+**Response:**
+
+```json
+{
+  "message": "User deleted successfully"
+}
+```
 
 ---
 
-### **Notes**
+## Testing Using Postman
 
-- JWT tokens expire in 1 day (`JWT_EXPIRES_IN=1d`).
-- All passwords are securely hashed using **bcrypt**.
-- TypeORM auto-creates the database tables based on your entity schemas.
-- `city` and `country` are optional fields.
+1. Register a user with `POST /api/users/register`.
+2. Login with `POST /api/users/login` to get JWT token.
+3. Use token to access:
+
+   - `GET /api/users` → list all users (Admin only)
+   - `GET /api/users/:id` → view single user
+   - `PATCH /api/users/:id` → update user
+   - `DELETE /api/users/:id` → delete user
+
+---
+
+## Notes for Beginners
+
+- Start server using:
+
+```bash
+nodemon index.js
+```
+
+- PostgreSQL must be running.
+- JWT tokens expire in 1 day.
+- Only Admin role can list, update, or delete other users.
+- Passwords are securely hashed.
+- TypeORM auto-creates tables based on entity schema.
+- Optional fields: `city`, `country`, `phone`.
+
+---

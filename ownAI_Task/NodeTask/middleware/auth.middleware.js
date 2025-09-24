@@ -1,18 +1,15 @@
-const { verifyJwt } = require("../utils/jwt");
-const { AppDataSource } = require("../data-source");
+const jwt = require("jsonwebtoken");
 
-async function authMiddleware(req, res, next) {
+function authMiddleware(req, res, next) {
   const header = req.headers.authorization;
   if (!header || !header.startsWith("Bearer ")) {
     return res.status(401).json({ message: "Authorization token missing" });
   }
+
+  const token = header.split(" ")[1];
   try {
-    const token = header.split(" ")[1];
-    const decoded = verifyJwt(token);
-    const userRepo = AppDataSource.getRepository("User");
-    const user = await userRepo.findOneBy({ id: decoded.userId });
-    if (!user) return res.status(401).json({ message: "Invalid token" });
-    req.user = user;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded; // contains { userId, role }
     next();
   } catch (err) {
     res.status(401).json({ message: "Invalid or expired token" });
