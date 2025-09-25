@@ -108,8 +108,11 @@ function PurchaseOrderForm() {
       0
     );
 
-    if (form.poType === "Individual" && totalSelected !== 1)
-      e.talents = "Individual PO requires exactly 1 talent";
+    // Individual PO: at least 1 talent
+    if (form.poType === "Individual" && totalSelected < 1)
+      e.talents = "Individual PO requires at least 1 talent";
+
+    // Group PO: at least 2 talents
     if (form.poType === "Group" && totalSelected < 2)
       e.talents = "Group PO requires at least 2 talents";
 

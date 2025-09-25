@@ -10,14 +10,14 @@ function TalentDetails({
   removeReq,
   errors,
   poType,
-  currencies = ["USD", "INR", "EUR"], 
+  currencies = ["USD", "INR", "EUR"],
 }) {
   return (
     <div className="mt-4">
       {/* Section Header */}
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-2 gap-2">
         <h6 className="mb-2 mb-md-0">Talent Detail</h6>
-        {poType === "Group" && (
+        {poType && (
           <button
             type="button"
             className="btn btn-outline-primary"
