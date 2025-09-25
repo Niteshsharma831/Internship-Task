@@ -35,8 +35,9 @@ This API allows you to:
 ### Step 1: Clone the repository
 
 ```bash
-git clone <https://github.com/Niteshsharma831/Internship-Task/tree/master/ownAI_Task/NodeTask>
-cd ownAI_Task
+git clone https://github.com/Niteshsharma831/Internship-Task/tree/master/ownAI_Task/NodeTask
+cd NodeTask
+
 ```
 
 ### Step 2: Install dependencies

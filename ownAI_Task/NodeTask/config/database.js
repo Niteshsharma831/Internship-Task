@@ -19,9 +19,9 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
 async function initDatabase() {
   try {
     await sequelize.authenticate();
-    console.log("✅ Connected to PostgreSQL successfully");
+    console.log("Connected to PostgreSQL successfully");
   } catch (err) {
-    console.error("❌ PostgreSQL connection failed:", err.message);
+    console.error("PostgreSQL connection failed:", err.message);
     process.exit(1);
   }
 }

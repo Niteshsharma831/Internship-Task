@@ -1,4 +1,3 @@
-// routes/user.routes.js
 const express = require("express");
 const router = express.Router();
 
@@ -25,13 +24,13 @@ router.post("/login", login);
 // Get single user details
 router.get("/:id", authMiddleware, getUserDetails);
 
-// List all users (Admin only)
+// List all users Admin only
 router.get("/", authMiddleware, requireRole("Admin"), listUsers);
 
-// Update user (Admin only)
+// Update user Admin only
 router.patch("/:id", authMiddleware, requireRole("Admin"), updateUser);
 
-// Delete user (Admin only)
+// Delete user Admin only
 router.delete("/:id", authMiddleware, requireRole("Admin"), deleteUser);
 
 module.exports = router;

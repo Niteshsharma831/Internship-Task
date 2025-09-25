@@ -10,7 +10,7 @@ function TalentDetails({
   removeReq,
   errors,
   poType,
-  currencies = ["USD", "INR", "EUR"], // default currencies
+  currencies = ["USD", "INR", "EUR"], 
 }) {
   return (
     <div className="mt-4">
