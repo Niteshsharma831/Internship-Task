@@ -121,9 +121,9 @@ npm run dev
 ## Author
 
 **Nitesh Sharma**
-Email: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
+Email: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)    
 Phone: +91 9572861917
-LinkedIn: [https://www.linkedin.com/in/nitesh-kumar-sharma-2894a1185/](https://www.linkedin.com/in/nitesh-kumar-sharma-2894a1185/)
+LinkedIn: [https://www.linkedin.com/in/nitesh-kumar-sharma-2894a1185/](https://www.linkedin.com/in/nitesh-kumar-sharma-2894a1185/)    
 Portfolio: [https://devcraftnitesh.vercel.app/](https://devcraftnitesh.vercel.app/)
 
 ### Previous Projects
