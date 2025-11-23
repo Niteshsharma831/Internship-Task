@@ -130,13 +130,3 @@ Portfolio: [https://devcraftnitesh.vercel.app/](https://devcraftnitesh.vercel.ap
 
 - **E-Commerce Website:** [Shopizo Online](https://shopizo-online.vercel.app/)
 - **Job Seeking Platform:** [HireOn WorkBridge](https://hireonworkbridge.vercel.app/)
-
----
-
-This README is **simple, clear, and easy to understand** for recruiters. It includes **setup instructions, usage, approach, challenges, and links to your portfolio/projects**.
-
----
-
-If you want, I can also **make a super-compact GitHub-ready version** with **all links, features, and one-page layout** that looks very professional at first glance.
-
-Do you want me to do that?
