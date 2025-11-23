@@ -65,7 +65,8 @@ git clone https://github.com/Niteshsharma831/Internship-Task.git
 2. **Navigate to the User Management Dashboard folder**
 
 ```bash
-cd "Internship-Task/TechX React Assignment/User Management Dashboard"
+cd "Internship-Task/TechX-React-Assignment/User-Management-Dashboard"
+
 ```
 
 3. **Install dependencies**
