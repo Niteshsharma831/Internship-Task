@@ -59,7 +59,7 @@ src/
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Niteshsharma831/Internship-Task/tree/master/TechX%20React%20Assignment/User%20Management%20Dashboard>
 cd user management dashboard
 ```
 
