@@ -75,7 +75,10 @@ exports.updateRecord = async (req, res) => {
       new: true,
     });
 
-    return res.status(200).json(updatedRecord);
+    return res.status(200).json({
+      message: "Record updated successfully",
+      record: updatedRecord,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Server error" });
