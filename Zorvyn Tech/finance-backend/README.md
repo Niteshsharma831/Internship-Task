@@ -197,11 +197,10 @@ Authorization: <your_token>
 💼 Full Stack Developer | App Developer | UX/UI Designer
 
 📧 Email: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
-📧 Secondary Email: sharmafuriturehouse.co.in
 
 📱 Contact: +91 9572861917
 
 🌐 Portfolio:
-https://niteshsharma831.github.io/portfolio/index.html
+https://devcraftnitesh.vercel.app/
 
 ---
