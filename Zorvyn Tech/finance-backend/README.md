@@ -1,6 +1,6 @@
 # Finance Data Processing & Access Control Backend
 
-## 🚀 Project Overview
+## Project Overview
 
 This project is a backend system for a **Finance Dashboard Application**. It allows different users to manage and view financial data based on their roles.
 
@@ -13,7 +13,7 @@ The system is designed with a focus on:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Node.js**
 - **Express.js**
@@ -23,7 +23,7 @@ The system is designed with a focus on:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 finance-backend/
@@ -40,7 +40,7 @@ finance-backend/
 
 ---
 
-## 🔐 Features
+## Features
 
 ### 1. User & Role Management
 
@@ -78,7 +78,7 @@ finance-backend/
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone Repository
 
@@ -120,9 +120,9 @@ http://localhost:5000
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
-### 🔑 Auth Routes
+### Auth Routes
 
 | Method | Endpoint           | Description   |
 | ------ | ------------------ | ------------- |
@@ -131,7 +131,7 @@ http://localhost:5000
 
 ---
 
-### 💰 Record Routes
+### Record Routes
 
 | Method | Endpoint         | Access         |
 | ------ | ---------------- | -------------- |
@@ -142,7 +142,7 @@ http://localhost:5000
 
 ---
 
-### 📊 Dashboard Routes
+### Dashboard Routes
 
 | Method | Endpoint       | Access              |
 | ------ | -------------- | ------------------- |
@@ -150,7 +150,7 @@ http://localhost:5000
 
 ---
 
-## 🔐 Authentication
+## Authentication
 
 - Uses **JWT Token**
 - Pass token in headers:
@@ -161,7 +161,7 @@ Authorization: <your_token>
 
 ---
 
-## 🧠 Design Decisions
+## Design Decisions
 
 - Modular architecture for scalability
 - Separation of concerns (routes, controllers, models)
@@ -171,7 +171,7 @@ Authorization: <your_token>
 
 ---
 
-## ✨ Optional Improvements (Future Scope)
+## Optional Improvements (Future Scope)
 
 - Pagination & filtering
 - Search functionality
@@ -182,7 +182,7 @@ Authorization: <your_token>
 
 ---
 
-## 📌 Assumptions
+## Assumptions
 
 - Roles are predefined (Viewer, Analyst, Admin)
 - Authentication is handled via JWT
@@ -191,16 +191,16 @@ Authorization: <your_token>
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Nitesh Kumar Sharma**
-💼 Full Stack Developer | App Developer | UX/UI Designer
+Full Stack Developer | App Developer | UX/UI Designer
 
-📧 Email: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
+Email: [niteshkumarsharma831@gmail.com](mailto:niteshkumarsharma831@gmail.com)
 
-📱 Contact: +91 9572861917
+Contact: +91 9572861917
 
-🌐 Portfolio:
+Portfolio:
 https://devcraftnitesh.vercel.app/
 
 ---
