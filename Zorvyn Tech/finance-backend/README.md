@@ -83,7 +83,7 @@ finance-backend/
 ### 1. Clone Repository
 
 ```bash
-git clone <your-repo-link>
+git clone https://github.com/Niteshsharma831/Internship-Task/tree/master/Zorvyn%20Tech/finance-backend
 cd finance-backend
 ```
 
